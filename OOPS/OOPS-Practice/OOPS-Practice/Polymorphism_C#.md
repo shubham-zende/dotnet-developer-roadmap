@@ -239,4 +239,3 @@ public class Program
 **What is polymorphism in C#?**
 
 Polymorphism is an OOP concept that allows the same method name or base-class reference to represent different behaviors. In C#, method overloading is a common example of compile-time polymorphism, while method overriding using `virtual` and `override` is a common example of run-time polymorphism.
-"""
