@@ -83,4 +83,20 @@ namespace OOPS_Practice
             Console.WriteLine("Calling Saving Account Balance function.");
         }
     }
+
+    // using Virtual and Override keywords:
+    class Parent
+    {
+        public virtual void Display()
+        {
+            Console.WriteLine("Calling Parent class");
+        }
+    }
+    class Child : Parent
+    {
+        public override void Display()
+        {
+            Console.WriteLine("Calling Child class");
+        }
+    }
 }
