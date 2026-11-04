@@ -16,13 +16,17 @@ namespace CollectionsAndGenerics
             //d.GetFunc();
 
 
-            // Non-Generic Class
+            // Non-Generic Collection
             Collections c = new Collections();
             //c.ArrayListExample();
             //c.Hashtable();
             //c.Stack();
             //c.Queue();
-            c.SortedList();
+            //c.SortedList();
+
+            // Generic Collection
+            //c.MyList();
+            c.MySortedList();
 
             Console.ReadLine();
         }
