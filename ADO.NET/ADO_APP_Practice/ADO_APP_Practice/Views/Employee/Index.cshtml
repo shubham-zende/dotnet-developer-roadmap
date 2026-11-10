@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = "Employee List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <h2>Employee Management</h2>
+
+    <p>List of all Employees</p>
+
+    @* Success Message *@
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close"
+                    data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @* Add Employee Button *@
+    <div class="mb-3">
+        <a asp-controller="Employee"
+           asp-action="Create"
+           class="btn btn-primary">
+            + Add New Employee
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Employee Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Email Id</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Joining Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.EmployeeId</td>
+                        <td>@i.FirstName</td>
+                        <td>@i.LastName</td>
+                        <td>@i.EmployeeAddress</td>
+                        <td>@i.Email</td>
+                        <td>@i.Department</td>
+                        <td>@i.Salary</td>
+
+                        <td>
+                            @(i.JoiningDate?.ToString("dd-MM-yyyy"))
+                        </td>
+
+                        <td>
+                            <div class="d-flex gap-1">
+
+                                @* Edit *@
+                                <a asp-controller="Employee"
+                                   asp-action="Edit"
+                                   asp-route-id="@i.EmployeeId"
+                                   class="btn btn-warning btn-sm">
+                                    Edit
+                                </a>
+
+                                @* Delete *@
+                                <a asp-controller="Employee"
+                                   asp-action="Delete"
+                                   asp-route-id="@i.EmployeeId"
+                                   class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9" class="text-center">
+                        No employees found.
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
