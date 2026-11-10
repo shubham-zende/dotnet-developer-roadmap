@@ -26,7 +26,8 @@ namespace CollectionsAndGenerics
 
             // Generic Collection
             //c.MyList();
-            c.MySortedList();
+            //c.MySortedList();
+            c.MyDict();
 
             Console.ReadLine();
         }
