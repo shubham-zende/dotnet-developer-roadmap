@@ -239,5 +239,31 @@ namespace CollectionsAndGenerics
                 Console.WriteLine(i);
             }
         }
+        // 3) Dictionary:
+        // - A Dictionary<TKey, TValue> is a generic collection in C#.
+        // - Belongs to system.collections.generics
+        // - Key must be unique and value can be duplicate.
+        // - Lookup is very fast (It uses hashing internally.)
+
+        public void MyDict()
+        {
+            Dictionary<int, string> dict = new Dictionary<int, string>();
+            dict.Add(5, "Shubham");
+            dict.Add(3, "Pratik");
+            dict.Add(2, "Swaraj");
+            dict.Add(4, "Mahesh");
+            dict.Add(1, "Swagat");
+
+            foreach(var i in dict)
+            {
+                Console.WriteLine($"{i.Key} = {i.Value}");
+            }
+            Console.WriteLine("Remove Key method.");
+            Console.WriteLine(dict.Remove(2));
+
+            Console.WriteLine("Count = ",dict.Count);
+
+            Console.WriteLine("Keys : ", dict.Keys);
+        }
     }
 }
